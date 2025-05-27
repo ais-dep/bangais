@@ -11,6 +11,7 @@ export default function CheckoutLink() {
     removeItem,
     totalPrice,
     clearCart,
+    addItem,
   } = useCart();
 
   const generateWhatsAppMessage = () => {
@@ -66,7 +67,7 @@ export default function CheckoutLink() {
                     </button>
                     <span className="w-6 text-center">{item.quantity}</span>
                     <button
-                      onClick={() => increaseQuantity(item.id)}
+                      onClick={() => addItem(item)}
                       className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-1 px-3 rounded"
                       aria-label={`Tambah jumlah ${item.name}`}
                     >

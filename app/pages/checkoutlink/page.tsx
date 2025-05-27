@@ -46,7 +46,6 @@ export default function Checkout() {
       [arr[i], arr[j]] = [arr[j], arr[i]];
     }
     setShuffledRekomendasi(arr);
-    // eslint-disable-next-line
   }, []);
 
   const totalPrice = cart.reduce(
