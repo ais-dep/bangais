@@ -17,7 +17,7 @@ export default function Hero() {
         </p>
         <Link
           href="/pages/checkoutlink"
-          className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-full text-lg transition-colors duration-300"
+          className="relative z-1 bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-full text-lg transition-colors duration-300"
         >
           Pesan Sekarang!
         </Link>

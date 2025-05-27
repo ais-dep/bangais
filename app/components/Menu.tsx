@@ -62,21 +62,18 @@ export default function Menu() {
                 {menuItems
                   .filter((item) => item.category === category)
                   .map((item) => (
-                    <div
-                      key={item.id}
-                      className="flex justify-between items-center"
-                    >
+                    <div key={item.id} className="flex flex-col py-2">
                       <div>
-                        <h4 className="font-medium text-brown-900">
+                        <div className="font-medium text-black">
                           {item.name}
-                        </h4>
-                        <p className="text-brown-700">
+                        </div>
+                        <div className="text-sm text-gray-600">
                           Rp {item.price.toLocaleString()}
-                        </p>
+                        </div>
                       </div>
                       <button
+                        className="mt-2 bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-full text-xs sm:text-base transition-colors duration-300"
                         onClick={() => addItem(item)}
-                        className="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-full text-sm transition-colors duration-300"
                       >
                         + Tambah
                       </button>
@@ -89,13 +86,13 @@ export default function Menu() {
 
         {cart.length > 0 && (
           <div className="fixed bottom-4 right-4 bg-white rounded-lg shadow-lg p-4">
-            <div className="flex items-center gap-4">
+            <div className="flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:gap-4">
               <span className="text-brown-900 font-medium">
                 Keranjang: {cart.length} item
               </span>
               <Link
                 href="/pages/checkoutlink"
-                className="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-full text-sm transition-colors duration-300"
+                className="bg-orange-600 z-20 hover:bg-orange-700 text-white px-4 py-2 rounded-full text-sm transition-colors duration-300 text-center w-full sm:w-auto"
               >
                 Lihat Keranjang
               </Link>
