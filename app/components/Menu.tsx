@@ -34,7 +34,6 @@ const menuItems: MenuItem[] = [
   { id: 6, name: "Dimsum Mix", price: 26000, category: "Dimsum Biasa" },
   { id: 7, name: "Gyoza Ayam", price: 20000, category: "Lainnya" },
   { id: 8, name: "Gyoza Udang", price: 25000, category: "Lainnya" },
-  { id: 8, name: "Gyoza udang", price: 25000, category: "Lainnya" },
   { id: 9, name: "Wonton Goreng", price: 20000, category: "Lainnya" },
   { id: 10, name: "Teh Manis", price: 7000, category: "Minuman" },
 ];

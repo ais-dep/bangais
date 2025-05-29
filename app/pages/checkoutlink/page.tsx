@@ -78,24 +78,21 @@ export default function Checkout() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-cream to-yellow-100 py-6 sm:py-12">
-      <div className="container mx-auto px-2 sm:px-4">
+    <div className="min-h-screen bg-cream py-12">
+      <div className="container mx-auto px-4">
         {/* Tombol Kembali */}
-        <div className="mb-4 sm:mb-6">
-          <Link
-            href="/"
-            className="text-black hover:underline font-medium text-sm sm:text-base"
-          >
+        <div className="mb-6">
+          <Link href="/" className="text-black hover:underline font-medium">
             &larr; Kembali
           </Link>
         </div>
-        <h1 className="text-2xl sm:text-3xl font-bold text-center text-black mb-6 sm:mb-8">
+        <h1 className="text-3xl font-bold text-center text-black mb-8">
           Checkout Pesanan
         </h1>
 
         {/* Ringkasan Pesanan */}
-        <div className="w-full max-w-2xl mx-auto bg-white rounded-lg shadow-lg p-3 sm:p-6 mb-6 sm:mb-8">
-          <h2 className="text-lg sm:text-xl font-bold text-black mb-3 sm:mb-4">
+        <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg p-6 mb-8">
+          <h2 className="text-xl font-bold text-black mb-4">
             Ringkasan Pesanan
           </h2>
           {cart.length === 0 ? (
@@ -103,38 +100,30 @@ export default function Checkout() {
           ) : (
             <ul className="divide-y divide-gray-200 mb-4">
               {cart.map((item) => (
-                <li
-                  key={item.id}
-                  className="flex items-center py-2 text-xs sm:text-base"
-                >
+                <li key={item.id} className="flex items-center py-2">
                   {/* Nama dan jumlah */}
-                  <div className="flex-1 min-w-0 truncate">
-                    <span
-                      className="font-medium text-black truncate block max-w-[90px] sm:max-w-none"
-                      title={item.name}
-                    >
-                      {item.name}
-                    </span>
-                    <span className="ml-1 text-black">x{item.quantity}</span>
+                  <div className="flex-1 min-w-0">
+                    <span className="font-medium text-black">{item.name}</span>
+                    <span className="ml-2 text-black">x{item.quantity}</span>
                   </div>
                   {/* Tombol - dan + */}
-                  <div className="flex items-center justify-center gap-1 w-14 sm:gap-2 sm:w-32">
+                  <div className="flex items-center justify-center gap-2 w-32">
                     <button
                       onClick={() => removeItem(item.id)}
-                      className="bg-gray-200 text-black rounded-full px-2 sm:px-3 py-1 transition-all duration-200 hover:bg-gray-300 active:scale-95 shadow text-xs sm:text-lg"
+                      className="bg-gray-200 text-black rounded-full px-3 py-1 transition-all duration-200 hover:bg-gray-300 active:scale-95 shadow"
                     >
                       -
                     </button>
                     <button
                       onClick={() => addItem(item)}
-                      className="bg-gray-200 text-black rounded-full px-2 sm:px-3 py-1 transition-all duration-200 hover:bg-gray-300 active:scale-95 shadow text-xs sm:text-lg"
+                      className="bg-gray-200 text-black rounded-full px-3 py-1 transition-all duration-200 hover:bg-gray-300 active:scale-95 shadow"
                     >
                       +
                     </button>
                   </div>
                   {/* Harga */}
-                  <div className="w-16 sm:w-32 text-right">
-                    <span className="text-black font-semibold text-xs sm:text-base">
+                  <div className="w-32 text-right">
+                    <span className="text-black font-semibold">
                       Rp {(item.price * item.quantity).toLocaleString()}
                     </span>
                   </div>
@@ -154,18 +143,16 @@ export default function Checkout() {
         </div>
 
         {/* Rekomendasi Tambahan */}
-        <div className="w-full max-w-2xl mx-auto bg-white rounded-lg shadow p-3 sm:p-6 mb-6 sm:mb-8">
-          <h2 className="text-base sm:text-lg font-bold text-black mb-3 sm:mb-4">
-            Menu Lainnya
-          </h2>
-          <div className="flex flex-wrap gap-2 sm:gap-4">
+        <div className="max-w-2xl mx-auto bg-white rounded-lg shadow p-6 mb-8">
+          <h2 className="text-lg font-bold text-black mb-4">Menu Lainnya</h2>
+          <div className="flex flex-wrap gap-4">
             {shuffledRekomendasi
               .filter((item) => !cart.some((c) => c.id === item.id))
               .map((item) => (
                 <button
                   key={item.id}
                   onClick={() => addItem(item)}
-                  className="bg-gray-100 hover:bg-yellow-200 text-black px-3 sm:px-4 py-2 rounded-full shadow text-xs sm:text-sm font-medium transition-colors duration-200"
+                  className="bg-gray-100 hover:bg-gray-200 text-black px-4 py-2 rounded-full shadow text-sm font-medium"
                 >
                   + {item.name} (Rp {item.price.toLocaleString()})
                 </button>
@@ -176,9 +163,9 @@ export default function Checkout() {
         {/* Formulir Checkout */}
         <form
           onSubmit={handleSubmit}
-          className="w-full max-w-2xl mx-auto bg-white rounded-lg shadow-lg p-3 sm:p-6"
+          className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg p-6"
         >
-          <div className="space-y-4 sm:space-y-6">
+          <div className="space-y-6">
             <div>
               <label className="block text-black font-medium mb-2">Nama</label>
               <input
